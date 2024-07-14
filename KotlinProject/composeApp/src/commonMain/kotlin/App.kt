@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
+import app.di.getDraftModule
 import app.presentation.draft.DraftGraph
 import app.presentation.draft.DraftScreen
 import app.presentation.draft.DraftView
@@ -42,14 +43,8 @@ object Graphs {
 @Composable
 @Preview
 fun App() {
-    val module: Module = module {
-        factory {
-            DraftViewModel()
-            DraftingViewModel()
-        }
-    }
     startKoin {
-        modules(module)
+        modules(getDraftModule())
     }
     AlmagestTheme {
         val navController = rememberNavController()
