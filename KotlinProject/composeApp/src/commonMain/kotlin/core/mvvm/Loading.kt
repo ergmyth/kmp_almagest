@@ -6,9 +6,9 @@ sealed interface LoadingState {
 }
 
 data class LoadingData(
-    val title: String,
-    val subtitle: String,
-    val type: LoadingType
+    val title: String = "",
+    val subtitle: String = "",
+    val type: LoadingType = LoadingType.Transparent
 )
 
 enum class LoadingType {

@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 
 abstract class BaseViewModel() : ViewModel() {
 
-    private val _viewState = MutableStateFlow<ViewState>(object: ViewState {})
+    private val _viewState = MutableStateFlow<ViewState>(object : ViewState {})
     val viewState = _viewState.asStateFlow()
 
     private val _viewEvent = MutableSharedFlow<ViewEvent>()
@@ -42,8 +42,8 @@ abstract class BaseViewModel() : ViewModel() {
 
     protected fun launchCoroutine(
         needLoader: Boolean = false,
-        loadingData: LoadingData? = null,
-        block: () -> Unit
+        loadingData: LoadingData = LoadingData(),
+        block: suspend () -> Unit
     ) {
         viewModelScope.launch {
             if (needLoader) {

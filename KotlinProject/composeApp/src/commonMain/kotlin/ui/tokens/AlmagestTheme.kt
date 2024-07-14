@@ -10,6 +10,8 @@ fun AlmagestTheme(
 ) {
     CompositionLocalProvider(
         LocalIcons provides tokens.icons,
+        LocalColors provides tokens.colors,
+        LocalTypography provides tokens.typography,
         content = content
     )
 }
