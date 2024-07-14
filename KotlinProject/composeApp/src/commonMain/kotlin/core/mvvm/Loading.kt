@@ -1,0 +1,17 @@
+package core.mvvm
+
+sealed interface LoadingState {
+    class Enabled(val data: LoadingData? = null) : LoadingState
+    object Disabled : LoadingState
+}
+
+data class LoadingData(
+    val title: String,
+    val subtitle: String,
+    val type: LoadingType
+)
+
+enum class LoadingType {
+    Shimmer,
+    Transparent;
+}

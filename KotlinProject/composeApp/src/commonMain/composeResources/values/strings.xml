@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bottom_nav_draft">Draft</string>
+    <string name="bottom_nav_live">Live</string>
+    <string name="bottom_nav_settings">Settings</string>
+</resources>
