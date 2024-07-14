@@ -12,6 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import app.presentation.draft.DraftViewModel
 import app.presentation.live.LiveScreen
 import core.mvvm.ViewEvent
 import core.mvvm.ViewState
@@ -19,15 +20,15 @@ import core.navigation.navigateViaRoute
 import core.navigation.observeEvents
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.koin.compose.koinInject
 
 @Composable
 fun DraftingView(
     navController: NavController,
-    viewModel: DraftingViewModel = DraftingViewModel()
+    viewModel: DraftingViewModel = koinInject()
 ) {
     observeEvents(navController, viewModel)
-    val state = viewModel.viewState.collectAsState().value
-    when (state) {
+    when (val state = viewModel.viewState.collectAsState().value) {
         is DraftingViewState.DefaultState -> {
             Column(
                 modifier = Modifier.fillMaxSize(),

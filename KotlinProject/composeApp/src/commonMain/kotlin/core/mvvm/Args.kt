@@ -16,12 +16,16 @@ object NavigationArgs {
     private val argsMap: MutableMap<String, Args> = mutableMapOf()
     val resultMap: MutableMap<String, Result> = mutableMapOf()
 
+    @Suppress("UNCHECKED_CAST")
     fun <T : Args> getArgs(key: String): T {
         return requireNotNull(argsMap[key] as T)
     }
-    //todo removing
 
     fun putArgs(args: Args, key: String) {
         argsMap[key] = args
+    }
+
+    fun removeArgs(key: String) {
+        argsMap.remove(key)
     }
 }

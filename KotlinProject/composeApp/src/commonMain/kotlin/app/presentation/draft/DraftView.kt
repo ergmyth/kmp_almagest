@@ -11,11 +11,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import core.navigation.observeEvents
+import org.koin.compose.koinInject
 
 @Composable
 fun DraftView(
     navController: NavController,
-    viewModel: DraftViewModel = DraftViewModel()
+    viewModel: DraftViewModel = koinInject()
 ) {
     observeEvents(navController, viewModel)
     Column(

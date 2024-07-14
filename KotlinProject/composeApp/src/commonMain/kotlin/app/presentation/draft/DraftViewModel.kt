@@ -10,7 +10,6 @@ import core.navigation.navigateViaRoute
 
 class DraftViewModel() : BaseViewModel() {
 
-
     override fun obtainIntent(intent: Intent) {
         when (intent) {
             is DraftIntent.OpenDrafting -> {

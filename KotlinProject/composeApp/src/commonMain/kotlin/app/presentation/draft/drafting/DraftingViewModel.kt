@@ -8,6 +8,11 @@ import core.mvvm.NavigationArgs
 class DraftingViewModel() : BaseViewModel() {
     private val args = NavigationArgs.getArgs<DraftingArgs>(DraftingScreen.ROUTE)
 
+    override fun onCleared() {
+        super.onCleared()
+        NavigationArgs.removeArgs(DraftingScreen.ROUTE)
+    }
+
     override fun obtainIntent(intent: Intent) {
 
     }

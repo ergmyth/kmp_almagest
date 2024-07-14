@@ -59,6 +59,8 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization)
 
+            implementation(libs.lifecycle.viewmodel.compose)
+
             implementation(libs.ktorfit.lib)
             implementation(libs.ktorfit.converters.response)
             implementation(libs.ktorfit.converters.call)
@@ -68,9 +70,11 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
 
-            api(libs.precompose)
-            api(libs.precompose.viewmodel)
-            api(libs.precompose.koin)
+//            implementation(libs.koin.bom)
+            implementation(libs.koin.core)
+            implementation(libs.koin.core.coroutines)
+//            implementation(libs.koin.compose)
+            implementation(libs.koin.androidx.compose)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
