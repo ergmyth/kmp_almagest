@@ -6,7 +6,6 @@ import core.mvvm.Args
 import core.mvvm.BaseViewModel
 import core.mvvm.Intent
 import core.mvvm.ViewEvent
-import core.navigation.navigateViaRoute
 
 class DraftViewModel() : BaseViewModel() {
 

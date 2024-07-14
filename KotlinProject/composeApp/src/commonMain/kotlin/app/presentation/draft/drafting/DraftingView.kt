@@ -1,29 +1,23 @@
 package app.presentation.draft.drafting
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.pointer.PointerEventPass
-import androidx.compose.ui.input.pointer.PointerInputChange
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import core.mvvm.LoadingState
-import core.mvvm.LoadingType
+import app.presentation.draft.DraftViewModel
 import core.navigation.observeEvents
 import org.koin.compose.koinInject
+import org.koin.core.qualifier.Qualifier
+import org.koin.core.qualifier.qualifier
 import ui.components.loading.LoadingPageBlocker
-import ui.tokens.AlmagestTheme
 
 @Composable
 fun DraftingView(
     navController: NavController,
-    viewModel: DraftingViewModel = koinInject()
+    viewModel: DraftingViewModel = koinInject<DraftingViewModel>()
 ) {
     observeEvents(navController, viewModel)
     LoadingPageBlocker(viewModel.loadingState.collectAsState().value) {
