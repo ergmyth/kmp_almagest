@@ -11,10 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import ui.tokens.AlmagestTheme
 
 @Composable
 fun BottomNavigationView(navController: NavHostController) {
-    BottomNavigation {
+    BottomNavigation(
+        backgroundColor = AlmagestTheme.colors.backgroundPrimary,
+        contentColor = AlmagestTheme.colors.contentPrimary
+    ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
 

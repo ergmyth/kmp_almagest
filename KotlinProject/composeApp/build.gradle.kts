@@ -45,6 +45,8 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.core.ktx)
+            api(libs.koin.android)
+            api(libs.koin.androidXCompose)
         }
         commonMain.dependencies {
             implementation(libs.navigation.compose)
@@ -70,13 +72,13 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
 
-//            implementation(libs.koin.bom)
-            implementation(libs.koin.core)
-            implementation(libs.koin.core.coroutines)
-//            implementation(libs.koin.compose)
-            implementation(libs.koin.androidx.compose)
+            api(project.dependencies.platform(libs.koin.bom))
+            api(libs.koin.compose)
+            api(libs.koin.core)
+            api(libs.koin.test)
         }
         desktopMain.dependencies {
+            implementation(libs.kotlinx.coroutines.swing)
             implementation(compose.desktop.currentOs)
         }
     }
